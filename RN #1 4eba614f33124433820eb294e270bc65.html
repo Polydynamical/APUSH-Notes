@@ -1,0 +1,711 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>RN #1</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	text-indent: -1.7em;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+}
+.highlight-gray {
+	color: rgb(155,154,151);
+}
+.highlight-brown {
+	color: rgb(100,71,58);
+}
+.highlight-orange {
+	color: rgb(217,115,13);
+}
+.highlight-yellow {
+	color: rgb(223,171,1);
+}
+.highlight-teal {
+	color: rgb(15,123,108);
+}
+.highlight-blue {
+	color: rgb(11,110,153);
+}
+.highlight-purple {
+	color: rgb(105,64,165);
+}
+.highlight-pink {
+	color: rgb(173,26,114);
+}
+.highlight-red {
+	color: rgb(224,62,62);
+}
+.highlight-gray_background {
+	background: rgb(235,236,237);
+}
+.highlight-brown_background {
+	background: rgb(233,229,227);
+}
+.highlight-orange_background {
+	background: rgb(250,235,221);
+}
+.highlight-yellow_background {
+	background: rgb(251,243,219);
+}
+.highlight-teal_background {
+	background: rgb(221,237,234);
+}
+.highlight-blue_background {
+	background: rgb(221,235,241);
+}
+.highlight-purple_background {
+	background: rgb(234,228,242);
+}
+.highlight-pink_background {
+	background: rgb(244,223,235);
+}
+.highlight-red_background {
+	background: rgb(251,228,228);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(55, 53, 47, 0.6);
+	fill: rgba(55, 53, 47, 0.6);
+}
+.block-color-brown {
+	color: rgb(100,71,58);
+	fill: rgb(100,71,58);
+}
+.block-color-orange {
+	color: rgb(217,115,13);
+	fill: rgb(217,115,13);
+}
+.block-color-yellow {
+	color: rgb(223,171,1);
+	fill: rgb(223,171,1);
+}
+.block-color-teal {
+	color: rgb(15,123,108);
+	fill: rgb(15,123,108);
+}
+.block-color-blue {
+	color: rgb(11,110,153);
+	fill: rgb(11,110,153);
+}
+.block-color-purple {
+	color: rgb(105,64,165);
+	fill: rgb(105,64,165);
+}
+.block-color-pink {
+	color: rgb(173,26,114);
+	fill: rgb(173,26,114);
+}
+.block-color-red {
+	color: rgb(224,62,62);
+	fill: rgb(224,62,62);
+}
+.block-color-gray_background {
+	background: rgb(235,236,237);
+}
+.block-color-brown_background {
+	background: rgb(233,229,227);
+}
+.block-color-orange_background {
+	background: rgb(250,235,221);
+}
+.block-color-yellow_background {
+	background: rgb(251,243,219);
+}
+.block-color-teal_background {
+	background: rgb(221,237,234);
+}
+.block-color-blue_background {
+	background: rgb(221,235,241);
+}
+.block-color-purple_background {
+	background: rgb(234,228,242);
+}
+.block-color-pink_background {
+	background: rgb(244,223,235);
+}
+.block-color-red_background {
+	background: rgb(251,228,228);
+}
+.select-value-color-default { background-color: rgba(206,205,202,0.5); }
+.select-value-color-gray { background-color: rgba(155,154,151, 0.4); }
+.select-value-color-brown { background-color: rgba(140,46,0,0.2); }
+.select-value-color-orange { background-color: rgba(245,93,0,0.2); }
+.select-value-color-yellow { background-color: rgba(233,168,0,0.2); }
+.select-value-color-green { background-color: rgba(0,135,107,0.2); }
+.select-value-color-blue { background-color: rgba(0,120,223,0.2); }
+.select-value-color-purple { background-color: rgba(103,36,222,0.2); }
+.select-value-color-pink { background-color: rgba(221,0,129,0.2); }
+.select-value-color-red { background-color: rgba(255,0,26,0.2); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="4eba614f-3312-4433-820e-b294e270bc65" class="page sans"><header><div class="page-header-icon undefined"><span class="icon">🎭</span></div><h1 class="page-title">RN #1</h1></header><div class="page-body"><p id="785cbdb9-68c7-42f6-9ddd-fd53f340fe8f" class=""><mark class="highlight-purple_background">How did the political, economic, and religious systems of Native Americans, Europeans, and Africans compare, and how did things change as a result of contacts among them?</mark></p><h2 id="6d2af4c5-170f-493f-8d89-4f9365c5ca78" class="block-color-blue_background"><mark class="highlight-blue_background">Introduction</mark></h2><div id="1b212ed5-6006-4670-9ae5-13bcc4e015d4" class="column-list"><div id="88a55d12-4005-42df-ba55-b6a9951a73cd" style="width:37.5%" class="column"><h3 id="69e9fbb9-4205-4b9b-9936-d7fdc2825275" class="">Recall</h3><p id="51cc71b9-3bf6-488b-a62d-40dbfd08a284" class="">What is the purpose of chapter 1?</p></div><div id="b21ef0b2-d1d5-4363-8c70-e442038c2049" style="width:62.5%" class="column"><h3 id="88c052c8-0112-4c34-a6d3-02b1c418bb9c" class="">Notes</h3><ul id="583895b8-ccd4-4d7e-b009-c0b6bbc75084" class="bulleted-list"><li>In April 1493, Columbus returns with numerous attractions—including six native Americans—from the Americas and is greeted with great honor at the court.</li></ul><ul id="ea58895e-106f-404b-a8e0-bd7b25a3b1c2" class="bulleted-list"><li>In Spring 1540, Hernando de Soto exchanges gold for pearls with Lady of Cofachiqui (ruler of tribe in South Carolina) and returns back to Spain.</li></ul><ul id="755bf858-f9c4-4f71-a24b-48f3d4dcafae" class="bulleted-list"><li>In 1578, Duarte Lopez visited the Kongo and describes their dark character and cultivated population of more than 100,000.</li></ul><ul id="8b08c118-e4ea-4238-bb1f-6da9beab1506" class="bulleted-list"><li>This chapter will largely view the 3 above cultures separately before they begin to interact greatly—the 3 cultures were in roughly equal positions at this time.</li></ul></div></div><figure class="block-color-red_background callout" style="white-space:pre-wrap;display:flex" id="5bdf5a58-51bf-4977-bd06-b281e38987e5"><div style="font-size:1.5em"><span class="icon">📌</span></div><div style="width:100%"><strong>SUMMARY: Three separate cultures from three separate areas are briefly described and shown to have natural human interactions. The goal of part of chapter 1 is to understand these three cultures before greater interaction between them.</strong></div></figure><h2 id="4c3c849b-eb77-4afd-b578-ac605c8b569a" class="block-color-blue_background"><mark class="highlight-blue_background">The Native American Experience </mark></h2><div id="a776537a-d7dd-4d79-8842-b47d84f4c4d8" class="column-list"><div id="97ea7151-b9b4-4256-b778-730f4641efa1" style="width:25%" class="column"><h3 id="ee3e2388-253b-426d-8a07-5b50a2e4dd19" class="">Recall</h3><p id="831a6873-a17f-4000-a7f3-a877b581d45d" class="">What was the &#x27;hierarchy&#x27; of Native American cultures?</p><p id="d80d9126-3391-49ba-8ba5-14a30abe1295" class="">
+</p><p id="3a79dfa6-c999-4d97-822b-531d4d770e4e" class="block-color-red_background"><mark class="highlight-red_background">The First Americans</mark></p><p id="e8514915-6fbc-4480-a5ac-b97c2c15c5d0" class="">How did the first Americans reach the Americas and how did they disperse?</p><p id="9b805dd0-bc75-4657-b366-da2b31ae31cf" class="">
+</p><p id="2d8181cb-e788-451b-b256-52a0f9f7601a" class="">
+</p><p id="14df9c33-5726-47d0-9121-49a131938793" class="block-color-red_background">American Empires</p><p id="27c28407-b79e-4a34-89d4-8e63c2a6e04f" class="">How were the American empires largely characterizd?</p><p id="eb26365b-ba97-46ab-8f98-c6f103dd9a3e" class="">What is tribute?</p><p id="40d032bb-8e40-472b-8675-42d1f73a32b4" class="">
+</p><p id="14dfdaf8-99a8-4134-8611-cbd4b7101b12" class="block-color-red_background">Chiefdoms and Confederacies</p><p id="69a7e359-6dbe-44a0-a03c-83fb705ca99c" class="">
+</p><p id="ccbccafd-98f5-48fe-8798-58bfeed38dd6" class="">
+</p><p id="eac3f713-3b8d-4df3-a9f4-7b3ba5d4bb60" class="">
+</p><p id="71567f1b-7a83-49a5-9392-0e507c5c549d" class="">
+</p><p id="51e7057b-8de5-4e14-83db-3de9e3a0143a" class="">
+</p><p id="3ecf825e-af98-4f23-88ad-519db9eada64" class="">
+</p><p id="2bd0b146-5f10-4eec-910d-f1b830876099" class="">
+</p><p id="abe2062e-5bf0-41b3-a0df-5c8da222a011" class="">
+</p><p id="524e1975-5a69-4df2-8c33-990c2fe1cfef" class="">
+</p><p id="f8022231-ac78-4d27-a094-c373a2321d09" class="">
+</p><p id="8498101c-ee5f-4e66-9654-8595c8bce69f" class="">
+</p><p id="dea4d52c-0717-45fd-b41b-dda13c08038c" class="">
+</p><p id="b62772ac-b005-4a98-ab3a-5a81450503ea" class="">
+</p><p id="883fe491-e970-42c3-822f-7596a4271bc1" class="">
+</p><p id="4f385a73-5443-4058-8a85-90703e00ebf2" class="block-color-red_background">Patterns of Trade</p><p id="328fbce9-1deb-42fe-a25e-6d6ff63d615e" class="">
+</p><p id="c2fe82a4-2574-4dbb-9b8b-f94c6284a03a" class="">
+</p><p id="e31b5b2f-efce-42ad-99f3-cbe5abf78084" class="">
+</p><p id="b3e55c63-8643-47cd-a4b1-206b5f07ea44" class="">
+</p><p id="e98792f9-287c-4113-915a-4f991d459562" class="">
+</p><p id="432adbed-4d6a-4014-9222-d8672e8a14dd" class="">
+</p><p id="be0097df-3a8d-47a5-ae8d-652c1a60c7d4" class="block-color-red_background">Sacred Power</p></div><div id="b6f5e609-2d26-417a-9dce-1d2f85427b46" style="width:75%" class="column"><h3 id="2b92a8f6-c142-41c2-b165-94be0dd6d0b2" class="">Notes</h3><ul id="dcb7edf8-804b-449a-b874-32fb2458b102" class="bulleted-list"><li>The hierarchy of Native American societies ranged from political countries that made war to cultures which were characterized as hunter-gatherers; both societies must be understood in all their complexity to fully understand the American culture.</li></ul><p id="5eefdaaf-fcc7-4776-a8a1-f23d62958928" class="">
+</p><ul id="fd456833-e81d-4508-84fa-8934071ce3a3" class="bulleted-list"><li>First Americans came from a bridge from the Ice Age between Siberia and Alaska; Navajos, Apaches, and Eskimos came by boat through the same passage but by water (~ 5-10k years ago).</li></ul><ul id="2cc7a2a1-a5d6-49e6-9005-9954ca633d52" class="bulleted-list"><li>During these 5k years, the people traveled south and east but were largely centered in central Mexico with 20 million people and the Andes mountains with 12 million people.</li></ul><p id="92fc6d13-f517-4e7f-bd74-5897b0a21bd3" class="">
+</p><ul id="26794086-ea3b-4533-b607-d8e3c2489813" class="bulleted-list"><li>Aztecs and Incas were the major tribes since they had a lot of people, productive agriculture, and an aggressive political state.</li></ul><ul id="5b8ce58d-df90-4fc9-a6d4-fd2d8e789734" class="bulleted-list"><li>Tenochtitlán, the capital of the Aztec empire was marveled greatly by Europeans in 1519.</li></ul><ul id="c70dcde0-f0dd-4dd1-a5f0-03c7785c3789" class="block-color-yellow_background bulleted-list"><li>Tribute, a form of paying others in wealth, was also extracted from citizens to the rulers. </li></ul><ul id="e937d06a-9936-4b19-ba5f-e7fa46dcf5e3" class="bulleted-list"><li>The Aztecs are largely known for capturing enemies and sacrificed them to gods who would in turn sustain their fertile fields.</li></ul><ul id="fe0035e9-ae78-4f69-a5aa-99f8ccc85608" class="bulleted-list"><li>The Inca capital, Cuzco, contained 60k residents and included a dense network of roads and cities in the Andes mountains.</li></ul><div id="3e992450-6736-40b9-93da-f47218c03fb8" class="collection-content"><h4 class="collection-title">Overview of Chiefdoms and Confederacies in NA</h4><table class="collection-content"><thead><tr><th><span class="icon property-icon"><svg viewBox="0 0 14 14" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.4);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesTitle"><path d="M7.73943662,8.6971831 C7.77640845,8.7834507 7.81338028,8.8943662 7.81338028,9.00528169 C7.81338028,9.49823944 7.40669014,9.89260563 6.91373239,9.89260563 C6.53169014,9.89260563 6.19894366,9.64612676 6.08802817,9.30105634 L5.75528169,8.33978873 L2.05809859,8.33978873 L1.72535211,9.30105634 C1.61443662,9.64612676 1.2693662,9.89260563 0.887323944,9.89260563 C0.394366197,9.89260563 0,9.49823944 0,9.00528169 C0,8.8943662 0.0246478873,8.7834507 0.0616197183,8.6971831 L2.46478873,2.48591549 C2.68661972,1.90669014 3.24119718,1.5 3.90669014,1.5 C4.55985915,1.5 5.12676056,1.90669014 5.34859155,2.48591549 L7.73943662,8.6971831 Z M2.60035211,6.82394366 L5.21302817,6.82394366 L3.90669014,3.10211268 L2.60035211,6.82394366 Z M11.3996479,3.70598592 C12.7552817,3.70598592 14,4.24823944 14,5.96126761 L14,9.07922535 C14,9.52288732 13.6549296,9.89260563 13.2112676,9.89260563 C12.8169014,9.89260563 12.471831,9.59683099 12.4225352,9.19014085 C12.028169,9.6584507 11.3257042,9.95422535 10.5492958,9.95422535 C9.60035211,9.95422535 8.47887324,9.31338028 8.47887324,7.98239437 C8.47887324,6.58978873 9.60035211,6.08450704 10.5492958,6.08450704 C11.3380282,6.08450704 12.040493,6.33098592 12.4348592,6.81161972 L12.4348592,5.98591549 C12.4348592,5.38204225 11.9172535,4.98767606 11.1285211,4.98767606 C10.6602113,4.98767606 10.2411972,5.11091549 9.80985915,5.38204225 C9.72359155,5.43133803 9.61267606,5.46830986 9.50176056,5.46830986 C9.18133803,5.46830986 8.91021127,5.1971831 8.91021127,4.86443662 C8.91021127,4.64260563 9.0334507,4.44542254 9.19366197,4.34683099 C9.87147887,3.90316901 10.6232394,3.70598592 11.3996479,3.70598592 Z M11.1778169,8.8943662 C11.6830986,8.8943662 12.1760563,8.72183099 12.4348592,8.37676056 L12.4348592,7.63732394 C12.1760563,7.29225352 11.6830986,7.11971831 11.1778169,7.11971831 C10.5616197,7.11971831 10.056338,7.45246479 10.056338,8.0193662 C10.056338,8.57394366 10.5616197,8.8943662 11.1778169,8.8943662 Z M0.65625,11.125 L13.34375,11.125 C13.7061869,11.125 14,11.4188131 14,11.78125 C14,12.1436869 13.7061869,12.4375 13.34375,12.4375 L0.65625,12.4375 C0.293813133,12.4375 4.43857149e-17,12.1436869 0,11.78125 C-4.43857149e-17,11.4188131 0.293813133,11.125 0.65625,11.125 Z"></path></svg></span>Name</th></tr></thead><tbody><tr id="154ea81f-ea05-4628-9382-46acadb75c50"><td class="cell-title"><a href="RN%20#1%204eba614f33124433820eb294e270bc65/Overview%20of%20Chiefdoms%20and%20Confederacies%20in%20NA%203e992450673640b993daf47218c03fb8/Mississippi%20Valley%20154ea81fea054628938246acadb75c50.html"><span class="icon">🌞</span>Mississippi Valley</a></td></tr><tr id="7e1f0bc2-d395-4797-870a-164f43f52e81"><td class="cell-title"><a href="RN%20#1%204eba614f33124433820eb294e270bc65/Overview%20of%20Chiefdoms%20and%20Confederacies%20in%20NA%203e992450673640b993daf47218c03fb8/Eastern%20Woodlands%207e1f0bc2d3954797870a164f43f52e81.html"><span class="icon">🌲</span>Eastern Woodlands</a></td></tr><tr id="75e5d87c-8cd1-4265-a129-9f79d7587e71"><td class="cell-title"><a href="RN%20#1%204eba614f33124433820eb294e270bc65/Overview%20of%20Chiefdoms%20and%20Confederacies%20in%20NA%203e992450673640b993daf47218c03fb8/The%20Great%20Lakes%2075e5d87c8cd14265a1299f79d7587e71.html"><span class="icon">🌊</span>The Great Lakes</a></td></tr><tr id="81db2c7f-c39d-47b3-bb55-ac73e94ae5af"><td class="cell-title"><a href="RN%20#1%204eba614f33124433820eb294e270bc65/Overview%20of%20Chiefdoms%20and%20Confederacies%20in%20NA%203e992450673640b993daf47218c03fb8/The%20Great%20Plains%20and%20Rockies%2081db2c7fc39d47b3bb55ac73e94ae5af.html"><span class="icon">🐎</span>The Great Plains and Rockies</a></td></tr><tr id="79917110-1d17-4922-8262-35e6037af95c"><td class="cell-title"><a href="RN%20#1%204eba614f33124433820eb294e270bc65/Overview%20of%20Chiefdoms%20and%20Confederacies%20in%20NA%203e992450673640b993daf47218c03fb8/The%20Arid%20Southwest%20799171101d174922826235e6037af95c.html"><span class="icon">🏘️</span>The Arid Southwest</a></td></tr><tr id="37633c1e-81d7-4aac-bf1f-83ecabd59ac5"><td class="cell-title"><a href="RN%20#1%204eba614f33124433820eb294e270bc65/Overview%20of%20Chiefdoms%20and%20Confederacies%20in%20NA%203e992450673640b993daf47218c03fb8/The%20Pacific%20Coast%2037633c1e81d74aacbf1f83ecabd59ac5.html"><span class="icon">🐟</span>The Pacific Coast</a></td></tr></tbody></table></div><p id="3fda5cb3-e1c3-4269-8924-76df5b81be0b" class="">
+</p><ul id="08074219-8946-4a9d-9dc6-7e19336e077e" class="bulleted-list"><li>Trade between Natives included food, raw materials, tools, religious artifacts, decorations and diversified diets, improved economies, and created luxury items.</li></ul><ul id="abff71e6-fe35-48aa-bc7a-12a182409107" class="bulleted-list"><li>Economic trade involved trading fairs. For example, nomadic hunters of the plains exchanged hides and meat with Pueblo farmers for maize, pottery, and cotton.</li></ul><ul id="f30921dd-7ea2-45f4-9313-b7bfe2576710" class="bulleted-list"><li>Trade across longer distances included rare and valuable objects such as copper, mica, jasper, obsidians, pipestone, seashells, bear claws, eagle feathers, cloth, iron tools, and weapons.</li></ul><ul id="f6de21cd-5fa8-41ef-ad60-deef1d08f2ca" class="bulleted-list"><li>Powerful leaders controlled tribes&#x27; wealth but held <em>potlachs </em>to give away their wealth and further assert their authority.</li></ul><p id="37fc8194-06e0-4e30-8c41-ff18220f718f" class="">
+</p><ul id="8f67a105-3185-47d2-a168-d62139eadca4" class="block-color-yellow_background bulleted-list"><li>Many Native Americans were animists who believed if they pleased the spirits they would have success in their life </li></ul><ul id="602ed353-bdb2-4ae2-bdaf-a0cec32c5c23" class="bulleted-list"><li>Women often grew crops and maintained family and by doing so, they believed the spirits blessed them with fertility.</li></ul><ul id="bd839eda-8cec-4367-9af5-f0f63328baf4" class="bulleted-list"><li>Men went through cleaning rituals of hunted animals and by doing so, they believed they allowed for the spirits to properly accept their action.</li></ul><ul id="3fc7dc59-4b56-4d00-969f-00b904896956" class="bulleted-list"><li>Wars were largely fought as a time for young warriors to prove themselves; many of these wars were more like blood feuds rather than for territorial purposes.</li></ul></div></div><h2 id="941a2890-87a5-4d89-ac40-699a6039a372" class="block-color-blue_background"><mark class="highlight-blue_background">Western Europe: The Edge of the Old World</mark></h2><div id="4889fb21-2820-4616-a7fd-1ab7833aca7f" class="column-list"><div id="c28102d7-885c-4112-a7a2-77dbb22b3146" style="width:25%" class="column"><h3 id="111abbea-0ec5-4c14-bf83-e7b16dd8150d" class="">Recall</h3><p id="c9868d57-45a7-4641-a6fa-5b142e402266" class="">
+</p><p id="aa9d7665-3c9c-40e7-bd7a-b9d12791bbe6" class="block-color-red_background">Hierarchy &amp; Authority</p><p id="ddd86055-9fc7-4b9b-bec5-46b3194fd362" class="">What was the &#x27;hierarchy&#x27; of European cultures?</p><p id="4b9018a0-b1b5-4cb6-8fdf-5e15a2e8fc37" class="">
+</p><p id="d162a6fe-9b1d-4a22-9155-a909c2aa488a" class="">
+</p><p id="aaeb17a6-c967-4401-bbe0-14123ea80a7a" class="">
+</p><p id="347336e2-fab6-4d73-b44f-bb2e4a774677" class="">
+</p><p id="981017b0-6571-4725-849c-f9dbf11a78e3" class="block-color-red_background">Peasant Society</p><p id="0663eb11-6dc6-404b-9527-76bc8afe7b71" class="">
+</p><p id="6e5228d6-5def-4921-a336-bdd95b2d5b3a" class="">
+</p><p id="7850903d-aefa-4979-8e0a-5e1c5315c83e" class="">
+</p><p id="e4abc6b9-0e0f-42ac-92f2-8040bedb8b34" class="">
+</p><p id="8dab4447-0898-4fac-9c65-3a36198c1ae5" class="">
+</p><p id="31ec12ab-eccd-46fe-8e0c-933683df517b" class="">
+</p><p id="28caa0fe-d5b5-4afe-b358-763a75a437e5" class="">
+</p><p id="34080ced-9b08-42a6-88a2-a04d4063e296" class="">
+</p><p id="1d297e83-b52e-42ad-9c9e-5006c1134ea4" class="">
+</p><p id="f7ccc48a-e18a-489d-a2da-2bb6a668b9f6" class="">
+</p><p id="1ccbe071-4cc0-443e-bcbf-a5bfe9e52bbd" class="">
+</p><p id="c8b88ed9-5408-46a3-a1fb-09699e2e1a16" class="">
+</p><p id="0c82ac3f-6df0-4fed-962c-1c18c9f7bfda" class="">
+</p><p id="ba75c02d-1cdb-43e9-bc2f-4ccfccd49d72" class="">
+</p><p id="8178a893-af0f-4e35-a5a3-a630d985b531" class="">
+</p><p id="138fe169-13be-4280-9d10-97cfe76c7108" class="">
+</p><p id="0b5f5689-2366-45a8-8192-e0739b310ef8" class="">
+</p><p id="dab14fdc-d6e3-43a8-963d-3c92fab963cd" class="block-color-red_background">Expanding Trade Networks</p><p id="557d7097-a26c-41be-8eb4-67dae1e2d10a" class="">
+</p><p id="ecbbfeca-bfd9-41e9-ab80-ad35b13d5ffa" class="">
+</p><p id="d3c951c6-1d39-4ec9-9c81-5550ecc2e7bc" class="">
+</p><p id="fccaae79-8678-4e1b-8c06-10187c2f287b" class="">
+</p><p id="ff411a3a-a350-4ecf-9263-8c3bc2a163db" class="">
+</p><p id="babb4c21-2bc1-4f23-8a9c-196956e1ab42" class="block-color-red_background">Myths, Religions, and Holy Warriors</p></div><div id="ae5f207b-a4fb-44fb-8254-bdc9b74d4842" style="width:75%" class="column"><h3 id="b1431ae3-1256-42ed-9226-48e8220970e9" class="">Notes</h3><ul id="9668fe4f-c7f7-4c72-8c87-a468682d1250" class="bulleted-list"><li>European populations didn&#x27;t have strong agricultural systems and also had a terrible plague known as the Black Plague in 1350 to kill 1/3 of Europe.</li></ul><ul id="92b4db79-a260-46bc-ad33-e3df2bb96356" class="bulleted-list"><li>The hierarchy of European society was largely traditional with the top at royalty but kept in check with the nobility.</li></ul><ul id="cd8b180e-0267-475a-975a-eff303b41879" class="block-color-yellow_background bulleted-list"><li>European society had the man as the head of the house and women were subjugated. Furthermore, the power was passed down through the man as a patriarchy. </li></ul><ul id="dd41eabf-aa91-437c-96a1-942d17d84225" class="block-color-yellow_background bulleted-list"><li>Marriage was arranged and was decided in advance based on social status. Also, through the system of primogeniture, the eldest son received all the father&#x27;s land. </li></ul><ul id="d0dd8669-1b25-494d-b9ed-cbbfff711d6b" class="bulleted-list"><li>This hierarchy gave people a sense of security because they were present in major institutions such as nobility, church, and village.</li></ul><p id="64488c8a-4e06-4b01-8736-e4ce86af61ce" class="">
+</p><ul id="dd9f66cb-6afd-46bd-b57c-14c533ae6078" class="bulleted-list"><li>Peasants made up the large portion of society and farming rights were given as a result of their labor.</li></ul><ul id="162ebc99-0dce-41fe-affd-2be251db188a" class="bulleted-list"><li>European rhythm of life followed seasons: </li></ul><div id="9451c293-780d-4e70-acff-fea44522b011" class="collection-content"><h4 class="collection-title">European Rhythm of Life</h4><table class="collection-content"><thead><tr><th><span class="icon property-icon"><svg viewBox="0 0 14 14" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.4);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesTitle"><path d="M7.73943662,8.6971831 C7.77640845,8.7834507 7.81338028,8.8943662 7.81338028,9.00528169 C7.81338028,9.49823944 7.40669014,9.89260563 6.91373239,9.89260563 C6.53169014,9.89260563 6.19894366,9.64612676 6.08802817,9.30105634 L5.75528169,8.33978873 L2.05809859,8.33978873 L1.72535211,9.30105634 C1.61443662,9.64612676 1.2693662,9.89260563 0.887323944,9.89260563 C0.394366197,9.89260563 0,9.49823944 0,9.00528169 C0,8.8943662 0.0246478873,8.7834507 0.0616197183,8.6971831 L2.46478873,2.48591549 C2.68661972,1.90669014 3.24119718,1.5 3.90669014,1.5 C4.55985915,1.5 5.12676056,1.90669014 5.34859155,2.48591549 L7.73943662,8.6971831 Z M2.60035211,6.82394366 L5.21302817,6.82394366 L3.90669014,3.10211268 L2.60035211,6.82394366 Z M11.3996479,3.70598592 C12.7552817,3.70598592 14,4.24823944 14,5.96126761 L14,9.07922535 C14,9.52288732 13.6549296,9.89260563 13.2112676,9.89260563 C12.8169014,9.89260563 12.471831,9.59683099 12.4225352,9.19014085 C12.028169,9.6584507 11.3257042,9.95422535 10.5492958,9.95422535 C9.60035211,9.95422535 8.47887324,9.31338028 8.47887324,7.98239437 C8.47887324,6.58978873 9.60035211,6.08450704 10.5492958,6.08450704 C11.3380282,6.08450704 12.040493,6.33098592 12.4348592,6.81161972 L12.4348592,5.98591549 C12.4348592,5.38204225 11.9172535,4.98767606 11.1285211,4.98767606 C10.6602113,4.98767606 10.2411972,5.11091549 9.80985915,5.38204225 C9.72359155,5.43133803 9.61267606,5.46830986 9.50176056,5.46830986 C9.18133803,5.46830986 8.91021127,5.1971831 8.91021127,4.86443662 C8.91021127,4.64260563 9.0334507,4.44542254 9.19366197,4.34683099 C9.87147887,3.90316901 10.6232394,3.70598592 11.3996479,3.70598592 Z M11.1778169,8.8943662 C11.6830986,8.8943662 12.1760563,8.72183099 12.4348592,8.37676056 L12.4348592,7.63732394 C12.1760563,7.29225352 11.6830986,7.11971831 11.1778169,7.11971831 C10.5616197,7.11971831 10.056338,7.45246479 10.056338,8.0193662 C10.056338,8.57394366 10.5616197,8.8943662 11.1778169,8.8943662 Z M0.65625,11.125 L13.34375,11.125 C13.7061869,11.125 14,11.4188131 14,11.78125 C14,12.1436869 13.7061869,12.4375 13.34375,12.4375 L0.65625,12.4375 C0.293813133,12.4375 4.43857149e-17,12.1436869 0,11.78125 C-4.43857149e-17,11.4188131 0.293813133,11.125 0.65625,11.125 Z"></path></svg></span>Name</th><th><span class="icon property-icon"><svg viewBox="0 0 14 14" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.4);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesDate"><path d="M10.8889,5.5 L3.11111,5.5 L3.11111,7.05556 L10.8889,7.05556 L10.8889,5.5 Z M12.4444,1.05556 L11.6667,1.05556 L11.6667,0 L10.1111,0 L10.1111,1.05556 L3.88889,1.05556 L3.88889,0 L2.33333,0 L2.33333,1.05556 L1.55556,1.05556 C0.692222,1.05556 0.00777777,1.75556 0.00777777,2.61111 L0,12.5 C0,13.3556 0.692222,14 1.55556,14 L12.4444,14 C13.3,14 14,13.3556 14,12.5 L14,2.61111 C14,1.75556 13.3,1.05556 12.4444,1.05556 Z M12.4444,12.5 L1.55556,12.5 L1.55556,3.94444 L12.4444,3.94444 L12.4444,12.5 Z M8.55556,8.61111 L3.11111,8.61111 L3.11111,10.1667 L8.55556,10.1667 L8.55556,8.61111 Z"></path></svg></span>Date</th></tr></thead><tbody><tr id="bdc4895b-b754-46a5-b0fa-e366eca86977"><td class="cell-title"><a href="RN%20#1%204eba614f33124433820eb294e270bc65/European%20Rhythm%20of%20Life%209451c293780d4e70acfffea44522b011/Card%201%20bdc4895bb75446a5b0fae366eca86977.html">Card 1</a></td><td class="cell-O}Np"></td></tr><tr id="da92d7c7-d607-46a1-81be-0d60b05e3409"><td class="cell-title"><a href="RN%20#1%204eba614f33124433820eb294e270bc65/European%20Rhythm%20of%20Life%209451c293780d4e70acfffea44522b011/Card%202%20da92d7c7d60746a181be0d60b05e3409.html">Card 2</a></td><td class="cell-O}Np"></td></tr><tr id="6cc5607e-ae78-421c-90ea-94aa0064a39d"><td class="cell-title"><a href="RN%20#1%204eba614f33124433820eb294e270bc65/European%20Rhythm%20of%20Life%209451c293780d4e70acfffea44522b011/Card%203%206cc5607eae78421c90ea94aa0064a39d.html">Card 3</a></td><td class="cell-O}Np"></td></tr><tr id="2b85499d-efdf-4a66-9d12-69d8461e097d"><td class="cell-title"><a href="RN%20#1%204eba614f33124433820eb294e270bc65/European%20Rhythm%20of%20Life%209451c293780d4e70acfffea44522b011/Plowing%20Planting%20Wheat,%20rye,%20and%20oats%202b85499defdf4a669d1269d8461e097d.html">Plowing/Planting Wheat, rye, and oats</a></td><td class="cell-O}Np"><time>@March 1, 2021 → April 20, 2021</time></td></tr><tr id="d0c7d5ad-42ad-4b76-bd95-2699fd05eb49"><td class="cell-title"><a href="RN%20#1%204eba614f33124433820eb294e270bc65/European%20Rhythm%20of%20Life%209451c293780d4e70acfffea44522b011/Shear,%20wash,%20and%20spin%20wool%20into%20yarn%20d0c7d5ad42ad4b76bd952699fd05eb49.html">Shear, wash, and spin wool into yarn</a></td><td class="cell-O}Np"><time>@March 31, 2021 → May 18, 2021</time></td></tr><tr id="ab48712b-b0ae-47c3-a739-b137b117c93b"><td class="cell-title"><a href="RN%20#1%204eba614f33124433820eb294e270bc65/European%20Rhythm%20of%20Life%209451c293780d4e70acfffea44522b011/Cut%20and%20Store%20hay%20ab48712bb0ae47c3a739b137b117c93b.html">Cut and Store hay</a></td><td class="cell-O}Np"><time>@June 3, 2021 → June 30, 2021</time></td></tr><tr id="9d8b8f3a-5658-4110-bf09-2412b2d1c7e8"><td class="cell-title"><a href="RN%20#1%204eba614f33124433820eb294e270bc65/European%20Rhythm%20of%20Life%209451c293780d4e70acfffea44522b011/Harvest%209d8b8f3a56584110bf092412b2d1c7e8.html">Harvest</a></td><td class="cell-O}Np"><time>@September 6, 2021 → October 3, 2021</time></td></tr><tr id="40c99ce3-c88c-4c4c-8ea4-0fa85c48f1b3"><td class="cell-title"><a href="RN%20#1%204eba614f33124433820eb294e270bc65/European%20Rhythm%20of%20Life%209451c293780d4e70acfffea44522b011/Thanksgiving%20and%20Feast%2040c99ce3c88c4c4c8ea40fa85c48f1b3.html">Thanksgiving and Feast</a></td><td class="cell-O}Np"><time>@November 1, 2021 → December 2, 2021</time></td></tr><tr id="81b910f2-4e5c-4325-ab52-da229e79685e"><td class="cell-title"><a href="RN%20#1%204eba614f33124433820eb294e270bc65/European%20Rhythm%20of%20Life%209451c293780d4e70acfffea44522b011/Slaughter%20Salt%20Smoke%20meat%2081b910f24e5c4325ab52da229e79685e.html">Slaughter/Salt/Smoke meat</a></td><td class="cell-O}Np"><time>@December 8, 2021 → January 14, 2022</time></td></tr><tr id="9e5f9412-0ea5-41c5-b433-c753f4686e04"><td class="cell-title"><a href="RN%20#1%204eba614f33124433820eb294e270bc65/European%20Rhythm%20of%20Life%209451c293780d4e70acfffea44522b011/Weave%20textiles%20visit%20friends%209e5f94120ea541c5b433c753f4686e04.html">Weave textiles/visit friends</a></td><td class="cell-O}Np"><time>@January 9, 2022 → February 15, 2022</time></td></tr><tr id="b0223032-b4ff-4bc6-bbef-5d3db1ab5eb8"><td class="cell-title"><a href="RN%20#1%204eba614f33124433820eb294e270bc65/European%20Rhythm%20of%20Life%209451c293780d4e70acfffea44522b011/Celebrate%20Christmas%20b0223032b4ff4bc6bbef5d3db1ab5eb8.html">Celebrate Christmas</a></td><td class="cell-O}Np"><time>@December 25, 2021 → January 21, 2022</time></td></tr><tr id="150dff16-37b5-4ebc-a2b3-2c1ade70a553"><td class="cell-title"><a href="RN%20#1%204eba614f33124433820eb294e270bc65/European%20Rhythm%20of%20Life%209451c293780d4e70acfffea44522b011/Hold%20carnivals%20dancing%20150dff1637b54ebca2b32c1ade70a553.html">Hold carnivals/dancing</a></td><td class="cell-O}Np"><time>@February 21, 2022 → March 24, 2022</time></td></tr></tbody></table></div><ul id="b3a3ffb5-f382-45f5-950a-251e8f3f70a2" class="bulleted-list"><li>Only half of children made it past age 21 due to malnourishment and poverty.</li></ul><ul id="58d9e7ec-c2fb-455a-a3d4-9b31fcd5d765" class="bulleted-list"><li>Europe had access to spices from India, compasses, mills, and clocks from China due to their convenient location.</li></ul><ul id="bdfd292f-5335-47f3-937d-8bbdce60465c" class="bulleted-list"><li>Italian merchants expanded their trading into the Middle East and Asia to create enormous wealth, trade, technology in Venice.</li></ul><ul id="ee5e16ff-f31e-4d7d-ab77-599ab066d454" class="block-color-yellow_background bulleted-list"><li>Venice was largely run as a republic: rule by bands of merchants </li></ul><ul id="21db9c95-bad0-46e1-8c8e-eb8df08c44b8" class="block-color-yellow_background bulleted-list"><li>In the Renaissance, a cultural transformation from 1300-1450, civic humanism was popularized; it&#x27;s an ideology calling for public virtue and service to the state. </li></ul><ul id="1973933d-0cf0-440a-a97b-366da9caea17" class="bulleted-list"><li>Trade in Northern Europe and the rest of Europe was much different than Italy since these other places had their own materials they were trading and largely favored kings. Although nobles controlled trade, the kings had to be paid tax and thus there was tension between the first and second estates.</li></ul><ul id="f9f246bb-0cca-4139-ac26-cb529d015a6a" class="bulleted-list"><li>Old European religious beliefs included worshiping the sun, wind, stones, and animals— similar to animism with Native Americans.</li></ul><ul id="ff798b24-0e44-4d66-8f1b-e5459cf2e4c0" class="bulleted-list"><li>After this, the Greek and pagan traditions introduced the idea of complex myths and gods.</li></ul><ul id="d487d27c-a50e-40c0-8382-a05e63779330" class="bulleted-list"><li>This again was overlaid with Christianity which great out of Jewish monotheism and quickly turned into the Roman Catholic Church.</li></ul><ul id="c8d912b0-30bd-4c7c-b6b2-b89414c177c7" class="bulleted-list"><li>People who taught heresies (the opposite of what the church taught (in reality, heresy literally refers to what is against the truth)) were seen as tools of Satan.</li></ul><ul id="d7119fc5-bbb6-4984-ac63-a80b05d389db" class="bulleted-list"><li>As Islam spread (who believed Muhammad was God&#x27;s last prophet) and challenged Christianity, Christian armies went on Crusades to reverse Islam expansion.</li></ul><ul id="52889959-9f32-461c-9127-a75babeb409b" class="bulleted-list"><li>The effects of the Crusades: intensified European Christian identity, introduced merchants to Eastern European trade routes, sugar was brought from the Mediterranean and experiments had impacts on the Americas later on as well.</li></ul><ul id="a8f94f55-d356-41c6-84d2-907fb50b7b8d" class="bulleted-list"><li>Martin Luther in 1517 argued that the Bible should be the ultimate authority, not the Church.</li></ul><ul id="ce1c1e8f-403a-49bf-a651-3c437075e7cf" class="block-color-yellow_background bulleted-list"><li>John Calvin, who preached predestination (that salvation is predetermined by God), set up a Christian community in Geneva and had influence to Puritans.</li></ul><ul id="9f662b94-d296-4ea9-8ca8-894d9e3b34ec" class="block-color-yellow_background bulleted-list"><li>Martin Luther&#x27;s efforts sparked the Protestant Reformation against the Church.</li></ul></div></div><hr id="5105fd95-d420-460d-8719-038cb914353f"/><h2 id="bec576fd-7726-4cf2-8742-99ea9cd28f67" class="block-color-blue_background">West and Central Africa: Origins of the Atlantic Slave Trade</h2><div id="4912b2f8-3ae4-4b52-b507-e2da018b66b8" class="column-list"><div id="c3c4853c-0d6e-4ec5-adfc-48953dc02dcd" style="width:25%" class="column"><h3 id="6afbaa4b-4c8c-43e6-a5ac-c4b37ca919e8" class="">Recall</h3><p id="38d71fef-0a6e-437c-bcd9-26961d79466d" class="">
+</p><p id="f96731ea-bb5a-4f41-bdb4-50ed2a412044" class="">
+</p><p id="da40697a-5ff2-43c9-9c89-c5159d4fbd59" class="block-color-red_background">Empires, Kingdoms, and Ministates</p><p id="d1e068fd-e926-4d66-a205-d3e6f5b34a62" class="">
+</p><p id="6d983826-81af-422d-8de8-c4030b4bbc45" class="">
+</p><p id="33089d39-cf32-4a83-902e-94a1fee0be68" class="">
+</p><p id="b180ca47-7bc7-488c-83a8-a317426cd4b6" class="">
+</p><p id="e05c77d0-bc3b-440b-90ca-c3966481cac7" class="">
+</p><p id="d87f015f-7080-4ef1-b715-cee9e658fda5" class="">
+</p><p id="8e463458-46b1-4685-a61a-9a82a7267246" class="">
+</p><p id="e7945b5f-78ad-4599-b4b2-b3eb592b8b14" class="block-color-red_background">Trans-Saharan and Coastal Trade</p></div><div id="a60d9da8-7484-4f51-89e7-3b675bae68ed" style="width:75%" class="column"><h3 id="8cfee6de-74db-4713-a55b-cf0c6026199e" class="">Notes</h3><ul id="f91bae8e-5cbf-4e7b-a090-f34440d4f711" class="bulleted-list"><li>Northern Africa was largely connected through civilization and various religions controlling them; on the other hand, it would take until after 1400 for the isolated West and Central Africa to trade with the world.</li></ul><ul id="1178a98e-8465-4b65-8d02-e056fef1b5d9" class="bulleted-list"><li>West Africa largely comprises of the Sahel (mostly flat, semiarid), the savanna (grassland with trees, shrubs), and the tropical rain forest and was dominated by Senegal, Gambia, Niger, and Volta (lake in Ghana).</li></ul><ul id="9f4e3e29-bebe-479a-87ae-8f99f92de1e3" class="bulleted-list"><li>Sudanic civilization in East and West Africa started in 9000 BC, moved to the west, developed a style of pottery, made use of cotton, invented techniques for working metals, and had their own monotheistic religion.</li></ul><ul id="894079e2-4223-418c-af80-372d930f7f7e" class="bulleted-list"><li>This Sudanic civilization had 3 major empires: Ghana Empire 800-1200 AD, Mali Empire 1200-1400 AD, and Songhai Empire 1400-later.</li></ul><ul id="02a0e5e1-d622-48c9-a001-6dbf99afcd5b" class="bulleted-list"><li>Gold was largely abundant in Africa and so abundant that when the tenth emperor of Mali made a pilgrimage and spent gold on the way, the gold was devalued for at least 10 years after.</li></ul><ul id="5a4af541-d504-4a4b-94cd-c2ce7b5282d0" class="bulleted-list"><li>In South of West Africa (jungle/savanna), there was a complex set of kingdoms who rose sweet potatoes because cattle would die by tsetse fly (carried parasites).</li></ul><ul id="00d3367e-276c-441c-91ba-75b512fff2d7" class="block-color-yellow_background bulleted-list"><li>Southwestern African merchants had to travel through all 3 empires and thus the empires had a monopoly over the trans-Saharan trade.</li></ul><ul id="f82a8e6d-4e19-4df1-808f-e7d5bdfbff7c" class="bulleted-list"><li>Starting in the 1450s, Europeans started to trade in the West Coast of Africa; Mande-speaking states controlled trade, Akan states to the east had goldfields (Gold Coast), and east of Akan was Benin (Slave Coast), Kongo to the South and Duarte Lopez had to negotiate contacts since they had more than 100k residents.</li></ul><ul id="109ac3b9-0383-4e9f-acd4-8f585b07cc20" class="bulleted-list"><li>Like animists in the Americas and Europe, Africa also believed kings had contact with the spiritual world and it was honored men have a big household and women many children.</li></ul></div></div><p id="490733ed-9bd4-4a48-b20d-a52fd2c64424" class="">
+</p><hr id="c8efd691-ae01-4b6b-a6c8-67ec85b7337f"/><h2 id="015abc5a-4be1-405e-a41c-0d4a67e3694f" class="block-color-blue_background">Exploration and Conquest</h2><div id="225770a9-e1fd-4aef-93f8-88b36aa11fab" class="column-list"><div id="51d25149-5698-4220-ab1c-756ccf5f14e3" style="width:25%" class="column"><h3 id="308af9f8-d506-4cc3-88eb-f281bce903c6" class="">Recall</h3><p id="ede12439-40b6-4533-9561-6947c7aed482" class="">
+</p><p id="310c019c-d2d6-4a7e-848e-2b71beefbf80" class="block-color-red_background">Portuguese Expansion</p><p id="a0bdff11-cc68-4012-9cb8-0762c5d9bc46" class="">
+</p><p id="eabd80cf-1857-46b7-8289-d74a7f9e3687" class="">
+</p><p id="a6c830b8-167c-4b90-9ff6-0c2f4e2d501b" class="">
+</p><p id="1e1b7bb5-1149-4f9a-b884-286a419723c3" class="">
+</p><p id="e7e5cd54-3ca8-4fb9-bc4a-87b8f17feea9" class="">
+</p><p id="f6019e1e-bfad-4ecb-bbd1-9eb7807e5885" class="">
+</p><p id="0fc0c369-5d2f-412c-b74f-c51d40c1e605" class="">
+</p><p id="83ed71d6-2346-47b9-9634-0dfff1dc204d" class="block-color-red_background">The African Slave Trade</p><p id="c2a2dde6-9682-417e-8c8d-7964c2f20c3c" class="">
+</p><p id="780d6659-4a77-4e80-b76f-a43cb68b0ba6" class="block-color-red_background">16th Century Incursions</p></div><div id="667a70e2-8167-449a-9b20-5e1d39d5f743" style="width:75%" class="column"><h3 id="6e6bde16-8bc6-4745-8864-98e7abb8ca4c" class="">Notes</h3><ul id="bff424d0-80f6-4199-b75e-b900d9ff4431" class="bulleted-list"><li>Atlantic World consisted of Portugal&#x27;s interaction with Africans and Spain&#x27;s interactions with the Americas.</li></ul><ul id="fd05e32f-c09e-499b-b5b0-44bc9730f73d" class="bulleted-list"><li>Prince Henry of Portugal learned of West Africa&#x27;s gold supply when speaking to Mediterraneans during the Crusades. He wanted an easy way to get there and his men developed the caravel (sail with triangular sail) to better handle the violent north-African waters. Exchanged salt, wine, and fish for ivory and gold.</li></ul><ul id="2f2c7271-aa0b-442c-a1fa-dcd63822e0ee" class="bulleted-list"><li>Henry&#x27;s efforts of expansion were seconded by Italy—who wanted access to the Indian ocean but didn&#x27;t want to pass through the agressive Ottoman empire—and they began to finance voyages down Africa.</li></ul><ul id="3a90fbb0-847d-4b2f-abc2-a0b6e68b0b65" class="bulleted-list"><li>During these trips, they discovered islands which became hotspots for growing new crops such as sugar.</li></ul><ul id="d0c095e0-2460-4bb3-8048-4fff2d2f49fd" class="bulleted-list"><li>Europeans didn&#x27;t really penetrate Africa because of disease and well-defended kingdoms; but, Europeans established trading posts on the coast.</li></ul><ul id="7b123255-ead3-45fd-83da-81399dcf073f" class="bulleted-list"><li>In 1488, Bartolomeu Dias rounded South Africa, and Vasco de Gama reached East Africa in 1497. At first, he was met with Arab power but after returning 5 years later with 21 fighting ships, the Portuguese dominated the Indian Ocean.</li></ul><ul id="281b5914-83ce-4e35-aeb8-c3614c41ec6f" class="bulleted-list"><li>Slavery in Africa was already common between tribes; Sonni Ali (ruler of Songhai Empire) personally own twelve <strong><em>tribes </em></strong>of slaves.</li></ul><ul id="f55bb0c0-273d-4c1a-aa03-aa476d5ef2f2" class="bulleted-list"><li>Slavery was also common in trans-Saharan tribe: 9 million Africans sold in trans-Saharan slave trade between 700 and 1900 AD.</li></ul><ul id="2a85a917-f5a5-4e2c-8858-7ced2ca2612c" class="bulleted-list"><li>Initially, Europeans valued gold and commodities but when they realized they could use humans for labor, they started to use slaves in Brazil and America.</li></ul><ul id="b7683cc8-da58-48f9-b77d-d3d23c7af499" class="block-color-yellow_background bulleted-list"><li>After wanting national unity, Ferdinand and Isabella expelled Islam and other religions other than Christianity; this is known as the <em>reconquista.</em></li></ul><ul id="e0e3f5d8-f7de-46ab-a884-ca37a8659934" class="bulleted-list"><li>After about six years of convincing, he finally got Ferdinand and Isabella to fund him on his voyage west of Europe.</li></ul><ul id="aa4f5538-5a74-4ca2-90b3-c1dd64ec4bd5" class="bulleted-list"><li>In 1492, Columbus set sail with 3 ships and landed in the Bahamas where he thought he had reached Asia; after leaving forty men behind, he returned to Spain.</li></ul><ul id="d72e15d9-17d3-45a7-b872-ab33d07824ba" class="bulleted-list"><li>Later, Columbus colonized the West Indies with 1,000 men but his death went unnoticed in 1506.</li></ul><ul id="fd4a7c4c-e524-4b9e-bf1e-e8e7f996b0e0" class="bulleted-list"><li>America get its name for Florentine explorer Amerigo Vespucci who said it wasn&#x27;t Asia they had landed on.</li></ul><ul id="05d47b08-74cd-44c7-a03b-30deac5bd95d" class="bulleted-list"><li>In 1513, Juan Ponce de León explorer Florida and Vasco Núñez de Balboa crossed the Panama (first European to see PO).</li></ul><ul id="2279c7ca-e9e1-4c81-a364-528b5025e2d1" class="bulleted-list"><li>In 1519, Hernán Cortes invaded the Aztecs by betraying their welcome and had toppled the empire by 1521.</li></ul><ul id="000ae4a4-99d1-4f9a-9d23-fbdbc3ac3ea1" class="bulleted-list"><li>Spaniards had a special ally: disease. Disease had wiped out millions and destroyed Aztecs&#x27; morale.</li></ul><ul id="bce6647a-a4e4-4f63-95dd-83a1287cdc08" class="bulleted-list"><li>In 1532, Francisco Pizarro did the same to Peru but disease had already done half the work. Thus, Spain had control of the largest empires of the Americas.</li></ul><ul id="e9eb2959-5e46-4093-b992-d1551880bb89" class="bulleted-list"><li>Spanish invasion literally killed almost 30 million people and wiped out the Native American population almost completely.</li></ul><ul id="f4a0c95e-baf0-40de-a97b-1260dc91aa5a" class="bulleted-list"><li>Portugal discovered Brazil and set up sugar plantations by using Native Americans and Africans as slave labor.</li></ul><ul id="15b6d6c9-b083-4a40-9307-53a1bcd217c2" class="bulleted-list"><li>Even though the European colonization had just begun, most of all the important elements were already present: dense empires were vulnerable, natives were susceptible to disease, and the tropical climate allowed for great cash crop plantations.</li></ul></div></div><hr id="2adb580a-b4ae-455f-84bc-e70407e8613c"/></div></article></body></html>
